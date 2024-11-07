@@ -706,3 +706,54 @@ local Window = OrionLib:MakeWindow({Name = "Skull Hub | Blox Fruits", HidePremiu
                     })
         end    
     })
+
+    local RedeemCodeSection = MainTab:AddSection({
+        Name = "Codes"
+    })
+    
+    local x2Code = {
+        "KITT_RESET",
+        "staffbattle",
+        "Sub2CaptainMaui",
+        "SUB2GAMERROBOT_RESET1",
+        "KittGaming",
+        "Sub2Fer999",
+        "Enyu_is_Pro",
+        "Magicbus",
+        "ENYU_IS_PRO",
+        "FUDD10",
+        "BIGNEWS",
+        "THEGREATACE",
+        "SUB2GAMERROBOT_EXP1",
+        "STRAWHATMAIME",
+        "SUB2OFFICIALNOOBIE",
+        "SUB2NOOBMASTER123",
+        "SUB2DAIGROCK",
+        "AXIORE",
+        "TANTAIGAMIMG",
+        "STRAWHATMAINE",
+        "JCWK",
+        "FUDD10_V2",
+        "SUB2FER999",
+        "MAGICBIS",
+        "TY_FOR_WATCHING",
+        "STARCODEHEO"
+    }
+    
+    MainTab:AddButton({
+        Name = "Redeem All Codes",
+        Callback = function()
+            function RedeemCode(value)
+                game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
+            end
+            for i,v in pairs(x2Code) do
+                RedeemCode(v)
+            end
+            StarterGui:SetCore("SendNotification", {
+                Title = "Skull Hub",
+                Text = "Redeemed All Codes!",
+                Duration = 3,
+                Icon = "rbxassetid://7734058599"
+            })
+        end    
+    })
