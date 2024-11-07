@@ -2533,69 +2533,61 @@ local S = Window:MakeTab({
     PremiumOnly = false
 })
 
-local E = Window:MakeTab({
-    Name = " ESP",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
-local RA = Window:MakeTab({
-    Name = " Raid",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
-local LC = Window:MakeTab({
-    Name = " Local Players",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
-local Wld = Window:MakeTab({
-    Name = " World Teleport",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
-local SV = Window:MakeTab({
-    Name = " Status Sever",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
-local D = Window:MakeTab({
-    Name = " Devil Fruit",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
-local R = Window:MakeTab({
-    Name = " Race V4",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
-local SH = Window:MakeTab({
-    Name = " Shop",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
-local C = Window:MakeTab({
-    Name = " Misc",
-    Icon = "rbxassetid://7734058599",
-    PremiumOnly = false
-})
-
 -----Label--------------------
 
-local Section = M:AddSection({
-    Name = "Select Weapon"
-})
 
-M:AddParagraph("Select Weapon","Please Select Weapon")
+    local Section = M:AddSection({
+        Name = "Codes"
+    })
 
-local WeaponList = {"Melee","Sword","Fruit","Gun"}
+    local x2Code = {
+        "KITT_RESET",
+        "staffbattle",
+        "Sub2CaptainMaui",
+        "SUB2GAMERROBOT_RESET1",
+        "KittGaming",
+        "Sub2Fer999",
+        "Enyu_is_Pro",
+        "Magicbus",
+        "ENYU_IS_PRO",
+        "FUDD10",
+        "BIGNEWS",
+        "THEGREATACE",
+        "SUB2GAMERROBOT_EXP1",
+        "STRAWHATMAIME",
+        "SUB2OFFICIALNOOBIE",
+        "SUB2NOOBMASTER123",
+        "SUB2DAIGROCK",
+        "AXIORE",
+        "TANTAIGAMIMG",
+        "STRAWHATMAINE",
+        "JCWK",
+        "FUDD10_V2",
+        "SUB2FER999",
+        "MAGICBIS",
+        "TY_FOR_WATCHING",
+        "STARCODEHEO"
+    }
+    
+    
+    
+    M:AddButton({
+        Name = "Redeem all codes",
+        Callback = function()
+            function RedeemCode(value)
+                game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
+            end
+            for i,v in pairs(x2Code) do
+                RedeemCode(v)
+            end
+          end    
+    })
+
+    local Section = M:AddSection({
+        Name = "Farm"
+    })
+
+    local WeaponList = {"Melee","Sword","Fruit","Gun"}
 _G.SelectWeapon = "Melee"
 M:AddDropdown({
     Name = "Select Weapon",
@@ -2647,119 +2639,6 @@ task.spawn(function()
     end
     end)
 
-if World2 and World1 then
-    local Section = M:AddSection({
-        Name = "BOOTS"
-    })
-
-    M:AddButton({
-        Name = "BOOST FPS",
-        Callback = function()
-            pcall(function()
-                game:GetService("Lighting").FantasySky:Destroy()
-                local g = game
-                local w = g.Workspace
-                local l = g.Lighting
-                local t = w.Terrain
-                t.WaterWaveSize = 0
-                t.WaterWaveSpeed = 0
-                t.WaterReflectance = 0
-                t.WaterTransparency = 0
-                l.GlobalShadows = false
-                l.FogEnd = 9e9
-                l.Brightness = 0
-                settings().Rendering.QualityLevel = "Level01"
-                for i, v in pairs(g:GetDescendants()) do
-                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then 
-                        v.Material = "Plastic"
-                        v.Reflectance = 0
-                    elseif v:IsA("Decal") or v:IsA("Texture") then
-                        v.Transparency = 1
-                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                        v.Lifetime = NumberRange.new(0)
-                    elseif v:IsA("Explosion") then
-                        v.BlastPressure = 1
-                        v.BlastRadius = 1
-                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                        v.Enabled = false
-                    elseif v:IsA("MeshPart") then
-                        v.Material = "Plastic"
-                        v.Reflectance = 0
-                        v.TextureID = 10385902758728957
-                    end
-                end
-                for i, e in pairs(l:GetChildren()) do
-                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                        e.Enabled = false
-                    end
-                end
-                for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
-                    if v.Name == ("Water;") then
-                        v.Transparency = 1
-                        v.Material = "Plastic"
-                    end
-                end
-            end)
-          end    
-    })
-end
-
-    local Section = M:AddSection({
-        Name = "Other Farm"
-    })
-
-    M:AddParagraph("Redeem Code","Click to Button to Reddem All Code In Blox Fruits.")
-
-    local x2Code = {
-        "KITT_RESET",
-        "staffbattle",
-        "Sub2CaptainMaui",
-        "SUB2GAMERROBOT_RESET1",
-        "KittGaming",
-        "Sub2Fer999",
-        "Enyu_is_Pro",
-        "Magicbus",
-        "ENYU_IS_PRO",
-        "FUDD10",
-        "BIGNEWS",
-        "THEGREATACE",
-        "SUB2GAMERROBOT_EXP1",
-        "STRAWHATMAIME",
-        "SUB2OFFICIALNOOBIE",
-        "SUB2NOOBMASTER123",
-        "SUB2DAIGROCK",
-        "AXIORE",
-        "TANTAIGAMIMG",
-        "STRAWHATMAINE",
-        "JCWK",
-        "FUDD10_V2",
-        "SUB2FER999",
-        "MAGICBIS",
-        "TY_FOR_WATCHING",
-        "STARCODEHEO"
-    }
-    
-    
-    
-    M:AddButton({
-        Name = "Redeem all code",
-        Callback = function()
-            function RedeemCode(value)
-                game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
-            end
-            for i,v in pairs(x2Code) do
-                RedeemCode(v)
-            end
-          end    
-    })
-
-    local Section = M:AddSection({
-        Name = "Auto Farm Level"
-    })
-
-
-M:AddParagraph("Main Farm","Click to Box to Farm, I ready update new mob farm!.")
-
 ToggleFarm = M:AddToggle({
     Name = "Auto Farm",
     Default = false,
@@ -2774,8 +2653,6 @@ ToggleFarm = M:AddToggle({
 local Section = M:AddSection({
     Name = "Mastery Menu"
 })
-
-M:AddParagraph("Mastery Menu","Click To Box to Start Farm Mastery")
 
 M:AddToggle({
     Name = "Auto Farm BF Mastery",
@@ -2916,7 +2793,7 @@ spawn(function()
 end)
 
 local Section = M:AddSection({
-    Name = "FastAttack :"
+    Name = "Fast Attack"
 })
 
 M:AddToggle({
