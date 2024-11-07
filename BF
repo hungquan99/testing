@@ -749,11 +749,12 @@ local Window = OrionLib:MakeWindow({Name = "Skull Hub | Blox Fruits", HidePremiu
             for i,v in pairs(x2Code) do
                 RedeemCode(v)
             end
-            StarterGui:SetCore("SendNotification", {
-                Title = "Skull Hub",
-                Text = "Redeemed All Codes!",
-                Duration = 3,
-                Icon = "rbxassetid://7734058599"
-            })
+            local StarterGui = game:GetService("StarterGui")
+                    StarterGui:SetCore("SendNotification", {
+                        Title = "Skull Hub",
+                        Text = "Redeemed all codes!",
+                        Duration = 3,
+                        Icon = "rbxassetid://7734058599"
+                    })
         end    
     })
