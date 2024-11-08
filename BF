@@ -2703,9 +2703,9 @@ task.spawn(function()
         Flag = "LevelFarm",
         Save = true,
         Callback = function(Value)
-            _G.AutoFarm = Value
-            StopTween(_G.AutoFarm)
             if Value then
+                _G.AutoFarm = Value
+                StopTween(_G.AutoFarm)
                 local StarterGui = game:GetService("StarterGui")
                     StarterGui:SetCore("SendNotification", {
                         Title = "Skull Hub",
