@@ -2703,26 +2703,8 @@ task.spawn(function()
         Flag = "LevelFarm",
         Save = true,
         Callback = function(Value)
-            if Value then
-                _G.AutoFarm = Value
-                StopTween(_G.AutoFarm)
-                local StarterGui = game:GetService("StarterGui")
-                    StarterGui:SetCore("SendNotification", {
-                        Title = "Skull Hub",
-                        Text = "Auto farm has been started!",
-                        Duration = 3,
-                        Icon = "rbxassetid://7734058599"
-                    })
-            end
-            if not Value then
-                local StarterGui = game:GetService("StarterGui")
-                    StarterGui:SetCore("SendNotification", {
-                        Title = "Skull Hub",
-                        Text = "Auto farm has been disabled!",
-                        Duration = 3,
-                        Icon = "rbxassetid://7734058599"
-                    })
-            end
+            _G.AutoFarm = Value
+            StopTween(_G.AutoFarm)
         end    
     })
 
